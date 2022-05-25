@@ -38,7 +38,7 @@ class EntrySerializer(serializers.Serializer):
                 if self.instance.datetime!=data: 
                     raise ValueError("Entry already exists")
             #Incorrect datetime
-            elif (self.instance.datetime.strftime("%Y-%m-%d") < datetime.now().strftime("%Y-%m-%d") ) : 
+            if (self.instance.datetime.strftime("%Y-%m-%d") < datetime.now().strftime("%Y-%m-%d") ) : 
                 raise ValueError("Datetime incorrect")
         
         except ValueError as e: 
